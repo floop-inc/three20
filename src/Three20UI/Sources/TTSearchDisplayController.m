@@ -184,7 +184,15 @@ static const NSTimeInterval kPauseInterval = 0.4;
   if (_pausesBeforeSearching) {
     [self restartPauseTimer];
   } else {
-    [_searchResultsViewController.dataSource search:searchString];
+	  if([self.searchBar.scopeButtonTitles count])
+	  {
+		  NSString *scope = [[self.searchBar scopeButtonTitles] objectAtIndex:[self.searchBar selectedScopeButtonIndex]];
+		  [_searchResultsViewController.dataSource search:searchString withinScope:scope];
+		  return YES;
+	  } else
+	  {
+		  [_searchResultsViewController.dataSource search:searchString];
+	  }
   }
   return NO;
 }
@@ -193,8 +201,18 @@ static const NSTimeInterval kPauseInterval = 0.4;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)searchDisplayController:(UISearchDisplayController*)controller
         shouldReloadTableForSearchScope:(NSInteger)searchOption {
-  [_searchResultsViewController invalidateModel];
-  [_searchResultsViewController.dataSource search:self.searchBar.text];
+	
+	if([self.searchBar.scopeButtonTitles count])
+	{
+		NSString* scope = [[self.searchBar scopeButtonTitles] objectAtIndex:searchOption];
+		[_searchResultsViewController.dataSource search:self.searchBar.text withinScope:scope];
+		return YES;
+	}else
+	{
+		[_searchResultsViewController invalidateModel];
+		[_searchResultsViewController.dataSource search:self.searchBar.text];
+	}
+
   return NO;
 }
 

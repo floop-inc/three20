@@ -72,6 +72,7 @@
                 atIndexPath:(NSIndexPath*)indexPath;
 
 - (void)search:(NSString*)text;
+- (void)search:(NSString*)text withinScope:(NSString*)scope;
 
 @end
 
