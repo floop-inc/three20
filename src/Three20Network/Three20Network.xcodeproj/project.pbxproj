@@ -961,6 +961,77 @@
 			};
 			name = Internal;
 		};
+		9CD28D92137CD46D0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E64541F1184BDF900F08CB1 /* Project.xcconfig */;
+			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Adhoc;
+		};
+		9CD28D93137CD46D0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
+		9CD28D94137CD46D0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)-Xcode3.2.5";
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
+		9CD28D95137CD46D0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../common/Xcode324iOS41Fix.pch";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
+		9CD28D96137CD46D0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)-Xcode3.2.5";
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
 		BEF31F3B0F352DF6000DE5D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
@@ -1055,6 +1126,7 @@
 				662D81AF126304EB005851C2 /* Debug */,
 				662D81B0126304EB005851C2 /* Internal */,
 				662D81B1126304EB005851C2 /* Release */,
+				9CD28D96137CD46D0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1065,6 +1137,7 @@
 				662D81EC12630516005851C2 /* Debug */,
 				662D81ED12630516005851C2 /* Internal */,
 				662D81EE12630516005851C2 /* Release */,
+				9CD28D94137CD46D0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1075,6 +1148,7 @@
 				BEF31F3B0F352DF6000DE5D2 /* Debug */,
 				6E924940112C6F4000531F03 /* Internal */,
 				BEF31F3C0F352DF6000DE5D2 /* Release */,
+				9CD28D93137CD46D0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1085,6 +1159,7 @@
 				C01FCF4F08A954540054247B /* Debug */,
 				6E92493F112C6F4000531F03 /* Internal */,
 				C01FCF5008A954540054247B /* Release */,
+				9CD28D92137CD46D0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1095,6 +1170,7 @@
 				EB9E6C6510B6A8F900DE563C /* Debug */,
 				6E924941112C6F4000531F03 /* Internal */,
 				EB9E6C6610B6A8F900DE563C /* Release */,
+				9CD28D95137CD46D0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

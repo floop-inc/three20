@@ -2550,7 +2550,7 @@
 			productReference = BEF31F3A0F352DF5000DE5D2 /* libThree20UI.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EB9E6C6110B6A8F800DE563C /* Three20UICommonUnitTests */ = {
+		EB9E6C6110B6A8F800DE563C /* Three20UIUnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB9E6C6710B6A8F900DE563C /* Build configuration list for PBXNativeTarget "Three20UIUnitTests" */;
 			buildPhases = (
@@ -2620,7 +2620,7 @@
 			targets = (
 				BEF31F390F352DF5000DE5D2 /* Three20UI */,
 				66FC2AB51264E3A400F56B19 /* Three20UI-Xcode3.2.5 */,
-				EB9E6C6110B6A8F800DE563C /* Three20UICommonUnitTests */,
+				EB9E6C6110B6A8F800DE563C /* Three20UIUnitTests */,
 				66FC2BC91264E3A500F56B19 /* Three20UIUnitTests-Xcode3.2.5 */,
 			);
 		};
@@ -3377,6 +3377,79 @@
 			};
 			name = Internal;
 		};
+		9CD28DD3137CD4CA0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
+			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Adhoc;
+		};
+		9CD28DD4137CD4CA0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
+		9CD28DD5137CD4CA0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)-Xcode3.2.5";
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
+		9CD28DD6137CD4CA0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../common/Xcode324iOS41Fix.pch";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
+		9CD28DD7137CD4CA0067A855 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)-Xcode3.2.5";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
 		BEF31F3B0F352DF6000DE5D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
@@ -3473,6 +3546,7 @@
 				66FC2BC51264E3A400F56B19 /* Debug */,
 				66FC2BC61264E3A400F56B19 /* Internal */,
 				66FC2BC71264E3A400F56B19 /* Release */,
+				9CD28DD5137CD4CA0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3483,6 +3557,7 @@
 				66FC2BE31264E3A500F56B19 /* Debug */,
 				66FC2BE41264E3A500F56B19 /* Internal */,
 				66FC2BE51264E3A500F56B19 /* Release */,
+				9CD28DD7137CD4CA0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3493,6 +3568,7 @@
 				BEF31F3B0F352DF6000DE5D2 /* Debug */,
 				6E924940112C6F4000531F03 /* Internal */,
 				BEF31F3C0F352DF6000DE5D2 /* Release */,
+				9CD28DD4137CD4CA0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3503,6 +3579,7 @@
 				C01FCF4F08A954540054247B /* Debug */,
 				6E92493F112C6F4000531F03 /* Internal */,
 				C01FCF5008A954540054247B /* Release */,
+				9CD28DD3137CD4CA0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3513,6 +3590,7 @@
 				EB9E6C6510B6A8F900DE563C /* Debug */,
 				6E924941112C6F4000531F03 /* Internal */,
 				EB9E6C6610B6A8F900DE563C /* Release */,
+				9CD28DD6137CD4CA0067A855 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
