@@ -46,6 +46,8 @@
  */
 - (void)tableViewDidLoadModel:(UITableView*)tableView;
 
+- (UIColor*)backgroundColorForStatusMessage;
+
 - (NSString*)titleForLoading:(BOOL)reloading;
 
 - (UIImage*)imageForEmpty;

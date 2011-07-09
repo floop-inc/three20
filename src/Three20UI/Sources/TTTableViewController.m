@@ -445,7 +445,7 @@
         TTActivityLabel* label = [[[TTActivityLabel alloc] initWithStyle:TTActivityLabelStyleWhiteBox]
                                   autorelease];
         label.text = title;
-        label.backgroundColor = _tableView.backgroundColor;
+        label.backgroundColor = [_dataSource backgroundColorForStatusMessage];
         self.loadingView = label;
       }
     }
@@ -466,7 +466,7 @@
         TTErrorView* errorView = [[[TTErrorView alloc] initWithTitle:title
                                                             subtitle:subtitle
                                                                image:image] autorelease];
-        errorView.backgroundColor = _tableView.backgroundColor;
+        errorView.backgroundColor = [_dataSource backgroundColorForStatusMessage];
         self.errorView = errorView;
       } else {
         self.errorView = nil;
@@ -490,7 +490,7 @@
       TTErrorView* errorView = [[[TTErrorView alloc] initWithTitle:title
                                                           subtitle:subtitle
                                                              image:image] autorelease];
-      errorView.backgroundColor = _tableView.backgroundColor;
+      errorView.backgroundColor = [_dataSource backgroundColorForStatusMessage];
       self.emptyView = errorView;
     } else {
       self.emptyView = nil;
