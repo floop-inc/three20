@@ -39,6 +39,9 @@ TTCSSParser* gActiveParser = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface TTCSSParser()
 
+/**
+ *
+ */
 - (void)consumeToken:(int)token text:(char*)text;
 
 @end
@@ -61,7 +64,8 @@ int cssConsume(char* text, int token) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     _ruleSets           = [[NSMutableDictionary alloc] init];
     _activeCssSelectors = [[NSMutableArray alloc] init];
   }
@@ -84,8 +88,8 @@ int cssConsume(char* text, int token) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)consumeToken:(int)token text:(char*)text {
-  NSString* string = [[NSString stringWithCString: text
-                                         encoding: NSUTF8StringEncoding] lowercaseString];
+  NSString* string = [NSString stringWithCString: text
+                                         encoding: NSUTF8StringEncoding];
   switch (token) {
     case CSSHASH:
     case CSSIDENT: {

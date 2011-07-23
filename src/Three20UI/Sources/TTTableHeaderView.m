@@ -35,7 +35,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithTitle:(NSString*)title {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     self.backgroundColor = [UIColor clearColor];
     self.style = TTSTYLE(tableHeader);
 
@@ -73,7 +74,9 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)layoutSubviews {
-  _label.frame = CGRectMake(12, 0, self.width, self.height);
+  _label.size = [_label sizeThatFits:CGSizeMake(self.bounds.size.width - 12,
+                                                self.bounds.size.height)];
+  _label.origin = CGPointMake(12, floorf((self.bounds.size.height - _label.size.height)/2.f));
 }
 
 

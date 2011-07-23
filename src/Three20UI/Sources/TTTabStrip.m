@@ -39,16 +39,19 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame  {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.scrollEnabled = YES;
     _scrollView.scrollsToTop = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self addSubview:_scrollView];
 
     self.style = TTSTYLE(tabStrip);
     self.tabStyle = @"tabRound:";
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   }
 
   return self;
@@ -92,6 +95,7 @@
 
     _overflowRight.left = self.width-_overflowRight.width;
     _overflowRight.hidden = NO;
+
   } else {
     _overflowRight.hidden = YES;
   }
@@ -106,6 +110,7 @@
     }
 
     _overflowLeft.hidden = NO;
+
   } else {
     _overflowLeft.hidden = YES;
   }

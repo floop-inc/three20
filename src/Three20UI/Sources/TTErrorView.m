@@ -39,7 +39,8 @@ static const CGFloat kHPadding  = 10;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle image:(UIImage*)image {
-  if (self = [self init]) {
+	self = [self init];
+  if (self) {
     self.title = title;
     self.subtitle = subtitle;
     self.image = image;
@@ -51,7 +52,8 @@ static const CGFloat kHPadding  = 10;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     _imageView = [[UIImageView alloc] init];
     _imageView.contentMode = UIViewContentModeCenter;
     [self addSubview:_imageView];
@@ -120,6 +122,7 @@ static const CGFloat kHPadding  = 10;
     _imageView.origin = CGPointMake(floor(self.width/2 - _imageView.width/2), top);
     _imageView.hidden = NO;
     top += _imageView.height + kVPadding1;
+
   } else {
     _imageView.hidden = YES;
   }

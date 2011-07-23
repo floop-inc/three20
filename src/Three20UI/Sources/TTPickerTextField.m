@@ -52,7 +52,8 @@ static const CGFloat kMinCursorWidth  = 50;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     _cellViews = [[NSMutableArray alloc] init];
     _lineCount = 1;
     _cursorOrigin = CGPointZero;
@@ -149,6 +150,7 @@ static const CGFloat kMinCursorWidth  = 50;
 - (CGFloat)topOfLine:(int)lineNumber {
   if (lineNumber == 0) {
     return 0;
+
   } else {
     CGFloat ttLineHeight = self.font.ttLineHeight;
     CGFloat lineSpacing = kCellPaddingY*2 + kSpacingY;
@@ -202,6 +204,7 @@ static const CGFloat kMinCursorWidth  = 50;
 - (void)layoutSubviews {
   if (_dataSource) {
     [self layoutCells];
+
   } else {
     _cursorOrigin.x = kPaddingX;
     _cursorOrigin.y = [self marginY];
@@ -230,6 +233,7 @@ static const CGFloat kMinCursorWidth  = 50;
     UITouch* touch = [touches anyObject];
     if (touch.view == self) {
       self.selectedCell = nil;
+
     } else {
       if ([touch.view isKindOfClass:[TTPickerViewCell class]]) {
         self.selectedCell = (TTPickerViewCell*)touch.view;
@@ -260,6 +264,7 @@ static const CGFloat kMinCursorWidth  = 50;
   if (_dataSource && [self.text isEqualToString:kSelected]) {
     // Hide the cursor while a cell is selected
     return CGRectMake(-10, 0, 0, 0);
+
   } else {
     CGRect frame = CGRectOffset(bounds, _cursorOrigin.x, _cursorOrigin.y);
     frame.size.width -= (_cursorOrigin.x + kPaddingX + (self.rightView ? kClearButtonSize : 0));
@@ -286,6 +291,7 @@ static const CGFloat kMinCursorWidth  = 50;
     return CGRectMake(
       bounds.origin.x+kPaddingX, self.marginY,
       self.leftView.frame.size.width, self.leftView.frame.size.height);
+
   } else {
     return bounds;
   }
@@ -297,6 +303,7 @@ static const CGFloat kMinCursorWidth  = 50;
   if (self.rightView) {
     return CGRectMake(bounds.size.width - kClearButtonSize, bounds.size.height - kClearButtonSize,
       kClearButtonSize, kClearButtonSize);
+
   } else {
     return bounds;
   }
@@ -321,6 +328,7 @@ static const CGFloat kMinCursorWidth  = 50;
   [super showSearchResults:show];
   if (show) {
     [self scrollToEditingLine:YES];
+
   } else {
     [self scrollToVisibleLine:YES];
   }
@@ -344,14 +352,17 @@ static const CGFloat kMinCursorWidth  = 50;
   if (emptyText && !self.hasText && !self.selectedCell && self.cells.count) {
     [self selectLastCell];
     return NO;
+
   } else if (emptyText && self.selectedCell) {
     [self removeSelectedCell];
     [super shouldUpdate:emptyText];
     return NO;
+
   } else if (!emptyText && !self.hasText && self.selectedCell) {
     [self removeSelectedCell];
     [super shouldUpdate:emptyText];
     return YES;
+
   } else {
     return [super shouldUpdate:emptyText];
   }
@@ -479,6 +490,7 @@ static const CGFloat kMinCursorWidth  = 50;
 
     if (_cellViews.count) {
       self.text = kEmpty;
+
     } else {
       self.text = @"";
     }

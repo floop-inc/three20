@@ -30,7 +30,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNext:(TTStyle*)next {
-  if (self = [super initWithNext:next]) {
+	self = [super initWithNext:next];
+  if (self) {
     _inset = UIEdgeInsetsZero;
   }
 
@@ -76,6 +77,7 @@
   insets.left += _inset.left;
   if (self.next) {
     return [self.next addToInsets:insets forSize:size];
+
   } else {
     return insets;
   }

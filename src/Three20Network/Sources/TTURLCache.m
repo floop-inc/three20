@@ -40,6 +40,9 @@ static NSMutableDictionary* gNamedCaches = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface TTURLCache()
 
+/**
+ * Creates paths as necessary and returns the cache path for the given name.
+ */
 + (NSString*)cachePathWithName:(NSString*)name;
 
 @end
@@ -59,7 +62,8 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithName:(NSString*)name {
-  if (self == [super init]) {
+	self = [super init];
+  if (self) {
     _name             = [name copy];
     _cachePath        = [[TTURLCache cachePathWithName:name] retain];
     _invalidationAge  = TT_DEFAULT_CACHE_INVALIDATION_AGE;
@@ -82,7 +86,8 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init {
-  if (self = [self initWithName:kDefaultCacheName]) {
+	self = [self initWithName:kDefaultCacheName];
+  if (self) {
   }
 
   return self;
@@ -113,11 +118,11 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (TTURLCache*)cacheWithName:(NSString*)name {
-  if (!gNamedCaches) {
+  if (nil == gNamedCaches) {
     gNamedCaches = [[NSMutableDictionary alloc] init];
   }
   TTURLCache* cache = [gNamedCaches objectForKey:name];
-  if (!cache) {
+  if (nil == cache) {
     cache = [[[TTURLCache alloc] initWithName:name] autorelease];
     [gNamedCaches setObject:cache forKey:name];
   }
@@ -127,7 +132,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (TTURLCache*)sharedCache {
-  if (!gSharedCache) {
+  if (nil == gSharedCache) {
     gSharedCache = [[TTURLCache alloc] init];
   }
   return gSharedCache;
@@ -215,11 +220,11 @@ static NSMutableDictionary* gNamedCaches = nil;
         [self expireImagesFromMemory];
       }
 
-      if (!_imageCache) {
+      if (nil == _imageCache) {
         _imageCache = [[NSMutableDictionary alloc] init];
       }
 
-      if (!_imageSortedList) {
+      if (nil == _imageSortedList) {
         _imageSortedList = [[NSMutableArray alloc] init];
       }
 
@@ -231,7 +236,9 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TODO (jverkoey May 3, 2010): Clean up this redundant code.
+/**
+ * TODO (jverkoey May 3, 2010): Clean up this redundant code.
+ */
 - (BOOL)imageExistsFromBundle:(NSString*)URL {
   NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
   NSFileManager* fm = [NSFileManager defaultManager];
@@ -257,8 +264,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIImage*)loadImageFromDocuments:(NSString*)URL {
   NSString* path = TTPathForDocumentsResource([URL substringFromIndex:12]);
-  NSData* data = [NSData dataWithContentsOfFile:path];
-  return [UIImage imageWithData:data];
+  return [UIImage imageWithContentsOfFile:path];
 }
 
 

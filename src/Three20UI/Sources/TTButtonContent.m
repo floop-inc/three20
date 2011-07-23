@@ -42,7 +42,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithButton:(TTButton*)button {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     _button = button;
   }
   return self;
@@ -146,6 +147,7 @@
       if ([_delegate respondsToSelector:@selector(imageView:didLoadImage:)]) {
         [_delegate imageView:nil didLoadImage:image];
       }
+
     } else {
       TTURLRequest* request = [TTURLRequest requestWithURL:_imageURL delegate:self];
       request.response = [[[TTURLImageResponse alloc] init] autorelease];

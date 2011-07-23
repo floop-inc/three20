@@ -42,7 +42,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     self.backgroundColor = [UIColor clearColor];
     self.dotStyle = @"pageDot:";
     self.hidesForSinglePage = NO;
@@ -97,7 +98,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)drawRect:(CGRect)rect {
-  if(_numberOfPages <= 1 && _hidesForSinglePage) {
+  if (_numberOfPages <= 1 && _hidesForSinglePage) {
     return;
   }
 
@@ -120,6 +121,7 @@
 
     if (i == _currentPage) {
       [self.currentDotStyle draw:context];
+
     } else {
       [self.normalDotStyle draw:context];
     }

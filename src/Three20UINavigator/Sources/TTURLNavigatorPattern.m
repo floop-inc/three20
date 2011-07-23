@@ -47,11 +47,13 @@ static NSString* kUniversalURLPattern = @"*";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithTarget: (id)target
                 mode: (TTNavigationMode)navigationMode {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     _navigationMode = navigationMode;
 
     if ([target class] == target && navigationMode) {
       _targetClass = target;
+
     } else {
       _targetObject = target;
     }
@@ -63,7 +65,8 @@ static NSString* kUniversalURLPattern = @"*";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithTarget:(id)target {
-  if (self = [self initWithTarget:target mode:TTNavigationModeNone]) {
+	self = [self initWithTarget:target mode:TTNavigationModeNone];
+  if (self) {
   }
 
   return self;
@@ -72,7 +75,8 @@ static NSString* kUniversalURLPattern = @"*";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init {
-  if (self = [self initWithTarget:nil]) {
+	self = [self initWithTarget:nil];
+  if (self) {
   }
 
   return self;
@@ -91,6 +95,7 @@ static NSString* kUniversalURLPattern = @"*";
 - (NSString *)description {
   if (nil != _targetClass) {
     return [NSString stringWithFormat:@"%@ => %@", _URL, _targetClass];
+
   } else {
     return [NSString stringWithFormat:@"%@ => %@", _URL, _targetObject];
   }
@@ -120,8 +125,10 @@ static NSString* kUniversalURLPattern = @"*";
 - (NSComparisonResult)compareSpecificity:(TTURLPattern*)pattern2 {
   if (_specificity > pattern2.specificity) {
     return NSOrderedAscending;
+
   } else if (_specificity < pattern2.specificity) {
     return NSOrderedDescending;
+
   } else {
     return NSOrderedSame;
   }
@@ -163,6 +170,7 @@ static NSString* kUniversalURLPattern = @"*";
       [parts addObject:@"query"];
       [self setSelectorWithNames:parts];
     }
+
   } else {
     [self setSelectorIfPossible:@selector(initWithNavigatorURL:query:)];
   }
@@ -316,6 +324,7 @@ static NSString* kUniversalURLPattern = @"*";
         if ([self setArgument:text pattern:patternText forInvocation:invocation]) {
           --remainingArgs;
         }
+
       } else {
         if (!unmatchedArgs) {
           unmatchedArgs = [NSMutableDictionary dictionary];
@@ -367,6 +376,7 @@ static NSString* kUniversalURLPattern = @"*";
     if (!_selector) {
       [self deduceSelector];
     }
+
   } else {
     [self compileURL];
 
@@ -410,6 +420,7 @@ static NSString* kUniversalURLPattern = @"*";
 
   if ((URL.fragment && !_fragment) || (_fragment && !URL.fragment)) {
     return NO;
+
   } else if (URL.fragment && _fragment && ![_fragment match:URL.fragment]) {
     return NO;
   }
@@ -434,6 +445,7 @@ static NSString* kUniversalURLPattern = @"*";
       if (query) {
         [invocation setArgument:&query atIndex:3];
       }
+
     } else {
       [self setArgumentsFromURL:URL forInvocation:invocation query:query];
     }
@@ -462,15 +474,18 @@ static NSString* kUniversalURLPattern = @"*";
     returnValue = [_targetClass alloc];
     if (_selector) {
       returnValue = [self invoke:returnValue withURL:URL query:query];
+
     } else {
       returnValue = [returnValue init];
     }
     [returnValue autorelease];
 #endif
+
   } else {
     id target = [_targetObject retain];
     if (_selector) {
       returnValue = [self invoke:target withURL:URL query:query];
+
     } else {
       TTDWARNING(@"No object created from URL:'%@' URL");
     }

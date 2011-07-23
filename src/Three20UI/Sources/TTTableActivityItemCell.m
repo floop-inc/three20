@@ -34,7 +34,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)identifier {
-  if (self = [super initWithStyle:style reuseIdentifier:identifier]) {
+	self = [super initWithStyle:style reuseIdentifier:identifier];
+  if (self) {
     _activityLabel = [[TTActivityLabel alloc] initWithStyle:TTActivityLabelStyleGray];
     [self.contentView addSubview:_activityLabel];
 
@@ -67,6 +68,7 @@
   UITableView* tableView = (UITableView*)self.superview;
   if (tableView.style == UITableViewStylePlain) {
     _activityLabel.frame = self.contentView.bounds;
+
   } else {
     _activityLabel.frame = CGRectInset(self.contentView.bounds, -1, -1);
   }

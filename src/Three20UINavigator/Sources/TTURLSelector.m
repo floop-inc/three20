@@ -34,7 +34,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithName:(NSString*)name {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     _name     = [name copy];
     _selector = NSSelectorFromString(_name);
   }
@@ -57,6 +58,7 @@
   if (_next) {
     id value = [object performSelector:_selector];
     return [_next perform:value returnType:returnType];
+
   } else {
     NSMethodSignature *sig = [object methodSignatureForSelector:_selector];
     NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];

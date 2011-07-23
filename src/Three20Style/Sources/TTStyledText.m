@@ -42,6 +42,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface TTStyledText()
 
+/**
+ * Cancels all network requests.
+ */
 - (void)stopLoadingImages;
 
 @end
@@ -54,6 +57,7 @@
 
 @synthesize rootNode      = _rootNode;
 @synthesize font          = _font;
+@synthesize textAlignment = _textAlignment;
 @synthesize width         = _width;
 @synthesize height        = _height;
 @synthesize invalidImages = _invalidImages;
@@ -62,7 +66,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNode:(TTStyledNode*)rootNode {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     _rootNode = [rootNode retain];
   }
 
@@ -296,6 +301,14 @@
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setTextAlignment:(UITextAlignment)textAlignment {
+  if (textAlignment != _textAlignment) {
+    _textAlignment = textAlignment;
+    [self setNeedsLayout];
+  }
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setWidth:(CGFloat)width {
@@ -324,6 +337,7 @@
   TTStyledLayout* layout = [[TTStyledLayout alloc] initWithRootNode:_rootNode];
   layout.width = _width;
   layout.font = _font;
+  layout.textAlignment = _textAlignment;
   [layout layout:_rootNode];
 
   [_rootFrame release];
@@ -390,6 +404,7 @@
 - (void)addChild:(TTStyledNode*)child {
   if (!_rootNode) {
     self.rootNode = child;
+
   } else {
     TTStyledNode* previousNode = _rootNode;
     TTStyledNode* node = _rootNode.nextSibling;
@@ -412,9 +427,11 @@
 - (void)insertChild:(TTStyledNode*)child atIndex:(NSInteger)insertIndex {
   if (!_rootNode) {
     self.rootNode = child;
+
   } else if (insertIndex == 0) {
     child.nextSibling = _rootNode;
     self.rootNode = child;
+
   } else {
     NSInteger i = 0;
     TTStyledNode* previousNode = _rootNode;

@@ -43,12 +43,18 @@ static const NSTimeInterval kGarbageCollectionInterval = 20;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Additions.
+ */
+TT_FIX_CATEGORY_BUG(UIViewController_TTNavigator)
+
 @implementation UIViewController (TTNavigator)
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query {
-  if (self = [self initWithNibName:nil bundle:nil]) {
+  self = [self initWithNibName:nil bundle:nil];
+  if (self) {
   }
 
   return self;
@@ -108,6 +114,7 @@ static const NSTimeInterval kGarbageCollectionInterval = 20;
                                          repeats: YES] retain];
     }
 #if TTDFLAG_CONTROLLERGARBAGECOLLECTION
+
   } else {
     TTDCONDITIONLOG(TTDFLAG_CONTROLLERGARBAGECOLLECTION,
                     @"Not adding a navigator controller.");

@@ -37,7 +37,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)identifier {
-  if (self = [super initWithStyle:style reuseIdentifier:identifier]) {
+	self = [super initWithStyle:style reuseIdentifier:identifier];
+  if (self) {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
   }
 
@@ -100,6 +101,7 @@
 
     if ([object isKindOfClass:[UIView class]]) {
       _view = [object retain];
+
     } else if ([object isKindOfClass:[TTTableViewItem class]]) {
       _item = [object retain];
       _view = [_item.view retain];

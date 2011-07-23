@@ -42,7 +42,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     self.userInteractionEnabled = NO;
     [self addTarget: self
              action: @selector(linkTouched) forControlEvents:UIControlEventTouchUpInside];
@@ -93,6 +94,7 @@
 
     _screenView.frame = self.bounds;
     _screenView.hidden = NO;
+
   } else {
     _screenView.hidden = YES;
   }

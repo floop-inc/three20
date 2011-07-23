@@ -38,7 +38,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNext:(TTStyle*)next {
-  if (self = [super initWithNext:next]) {
+	self = [super initWithNext:next];
+  if (self) {
     _offset = CGSizeZero;
   }
 
@@ -84,6 +85,7 @@
   if (_offset.width < 0) {
     inset.left += fabs(_offset.width) + blurSize*2;
     inset.right -= blurSize;
+
   } else if (_offset.width > 0) {
     inset.right += fabs(_offset.width) + blurSize*2;
     inset.left -= blurSize;
@@ -91,6 +93,7 @@
   if (_offset.height < 0) {
     inset.top += fabs(_offset.height) + blurSize*2;
     inset.bottom -= blurSize;
+
   } else if (_offset.height > 0) {
     inset.bottom += fabs(_offset.height) + blurSize*2;
     inset.top -= blurSize;
@@ -130,6 +133,7 @@
 
   if (_next) {
     return [self.next addToSize:size context:context];
+
   } else {
     return size;
   }

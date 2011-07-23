@@ -55,7 +55,8 @@ static CGFloat kThumbnailRowHeight = 79;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
     self.statusBarStyle = UIStatusBarStyleBlackTranslucent;
     self.navigationBarStyle = UIBarStyleBlackTranslucent;
     self.navigationBarTintColor = nil;
@@ -69,7 +70,8 @@ static CGFloat kThumbnailRowHeight = 79;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithDelegate:(id<TTThumbsViewControllerDelegate>)delegate {
-  if (self = [self initWithNibName:nil bundle:nil]) {
+	self = [self initWithNibName:nil bundle:nil];
+  if (self) {
     self.delegate = delegate;
   }
 
@@ -93,7 +95,8 @@ static CGFloat kThumbnailRowHeight = 79;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init {
-  if (self = [self initWithNibName:nil bundle:nil]) {
+	self = [self initWithNibName:nil bundle:nil];
+  if (self) {
   }
 
   return self;
@@ -140,6 +143,7 @@ static CGFloat kThumbnailRowHeight = 79;
 - (NSString*)URLForPhoto:(id<TTPhoto>)photo {
   if ([photo respondsToSelector:@selector(URLValueWithName:)]) {
     return [photo URLValueWithName:@"TTPhotoViewController"];
+
   } else {
     return nil;
   }
@@ -281,6 +285,7 @@ static CGFloat kThumbnailRowHeight = 79;
     NSString* URL = [self URLForPhoto:photo];
     if (URL) {
       TTOpenURLFromView(URL, self.view);
+
     } else {
       TTPhotoViewController* controller = [self createPhotoViewController];
       controller.centerPhoto = photo;

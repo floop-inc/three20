@@ -38,7 +38,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     self.text = @"";
     self.font = TTSTYLEVAR(font);
     self.textColor = [UIColor colorWithWhite:0.25 alpha:1];
@@ -135,6 +136,7 @@
   CGFloat x = 0;
   if (_textAlignment == UITextAlignmentRight) {
     x = self.frame.size.width - textSize.width;
+
   } else if (_textAlignment == UITextAlignmentCenter) {
     x = ceil(self.frame.size.width/2 - textSize.width/2);
   }
@@ -142,8 +144,10 @@
   CGFloat y = 0;
   if (self.contentMode == UIViewContentModeCenter) {
     y = ceil(rect.size.height/2 + _font.capHeight/2);
+
   } else if (self.contentMode == UIViewContentModeBottom) {
     y = rect.size.height + _font.descender;
+
   } else {
     y = _font.capHeight;
   }

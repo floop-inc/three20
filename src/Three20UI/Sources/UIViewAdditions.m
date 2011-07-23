@@ -16,6 +16,9 @@
 
 #import "Three20UI/UIViewAdditions.h"
 
+// Core
+#import "Three20Core/TTCorePreprocessorMacros.h"
+
 // UINavigator
 #import "Three20UINavigator/TTGlobalNavigatorMetrics.h"
 
@@ -80,7 +83,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface UITouch (TTCategory)
 
+/**
+ *
+ */
 - (id)initInView:(UIView *)view location:(CGPoint)location;
+
+/**
+ *
+ */
 - (void)changeToPhase:(UITouchPhase)phase;
 
 @end
@@ -94,7 +104,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initInView:(UIView *)view location:(CGPoint)location {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     _tapCount = 1;
     _locationInWindow = location;
     _previousLocationInWindow = location;
@@ -129,7 +140,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithTouch:(UITouch *)touch {
-  if (self == [super init]) {
+	self = [super init];
+  if (self) {
     UIEventFake *selfFake = (UIEventFake*)self;
     selfFake->_touches = [[NSMutableSet setWithObject:touch] retain];
     selfFake->_timestamp = [NSDate timeIntervalSinceReferenceDate];
@@ -158,6 +170,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Additions.
+ */
+TT_FIX_CATEGORY_BUG(UIViewAdditions)
+
 @implementation UIView (TTCategory)
 
 
@@ -387,8 +404,10 @@
 - (UIView*)ancestorOrSelfWithClass:(Class)cls {
   if ([self isKindOfClass:cls]) {
     return self;
+
   } else if (self.superview) {
     return [self.superview ancestorOrSelfWithClass:cls];
+
   } else {
     return nil;
   }
@@ -470,7 +489,8 @@
 - (void)presentAsKeyboardAnimationDidStop {
   [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardDidShowNotification
                                                       object:self
-                                                    userInfo:[self userInfoForKeyboardNotification]];
+                                                    userInfo:[self
+                                                              userInfoForKeyboardNotification]];
 }
 
 
@@ -478,7 +498,8 @@
 - (void)dismissAsKeyboardAnimationDidStop {
   [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardDidHideNotification
                                                       object:self
-                                                    userInfo:[self userInfoForKeyboardNotification]];
+                                                    userInfo:[self
+                                                              userInfoForKeyboardNotification]];
   [self removeFromSuperview];
 }
 
@@ -487,7 +508,8 @@
 - (void)presentAsKeyboardInView:(UIView*)containingView {
   [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillShowNotification
                                                       object:self
-                                                    userInfo:[self userInfoForKeyboardNotification]];
+                                                    userInfo:[self
+                                                              userInfoForKeyboardNotification]];
 
   self.top = containingView.height;
   [containingView addSubview:self];
@@ -505,7 +527,8 @@
 - (void)dismissAsKeyboard:(BOOL)animated {
   [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification
                                                       object:self
-                                                    userInfo:[self userInfoForKeyboardNotification]];
+                                                    userInfo:[self
+                                                              userInfoForKeyboardNotification]];
 
   if (animated) {
     [UIView beginAnimations:nil context:nil];
@@ -518,6 +541,7 @@
 
   if (animated) {
     [UIView commitAnimations];
+
   } else {
     [self dismissAsKeyboardAnimationDidStop];
   }

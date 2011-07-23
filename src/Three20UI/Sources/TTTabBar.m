@@ -47,7 +47,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithFrame:(CGRect)frame  {
-  if (self = [super initWithFrame:frame]) {
+	self = [super initWithFrame:frame];
+  if (self) {
     _selectedTabIndex = NSIntegerMax;
     _tabViews = [[NSMutableArray alloc] init];
 
@@ -176,7 +177,9 @@
     TTTabItem* tabItem = [_tabItems objectAtIndex:i];
     TTTab* tab = [[[TTTab alloc] initWithItem:tabItem tabBar:self] autorelease];
     [tab setStylesWithSelector:self.tabStyle];
-    [tab addTarget:self action:@selector(tabTouchedUp:) forControlEvents:UIControlEventTouchUpInside];
+    [tab        addTarget: self
+                   action: @selector(tabTouchedUp:)
+         forControlEvents: UIControlEventTouchUpInside];
     [self addTab:tab];
     [_tabViews addObject:tab];
     if (i == _selectedTabIndex) {

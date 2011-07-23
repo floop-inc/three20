@@ -43,7 +43,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNext:(TTStyle*)next {
-  if (self = [super initWithNext:next]) {
+	self = [super initWithNext:next];
+  if (self) {
     _contentMode = UIViewContentModeScaleToFill;
     _size = CGSizeZero;
   }
@@ -87,8 +88,11 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (TTImageStyle*)styleWithImageURL:(NSString*)imageURL defaultImage:(UIImage*)defaultImage
-                       contentMode:(UIViewContentMode)contentMode size:(CGSize)size next:(TTStyle*)next {
++ (TTImageStyle*)styleWithImageURL:(NSString*)imageURL
+                      defaultImage:(UIImage*)defaultImage
+                       contentMode:(UIViewContentMode)contentMode
+                              size:(CGSize)size
+                              next:(TTStyle*)next {
   TTImageStyle* style = [[[self alloc] initWithNext:next] autorelease];
   style.imageURL = imageURL;
   style.defaultImage = defaultImage;
@@ -117,8 +121,11 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (TTImageStyle*)styleWithImage:(UIImage*)image defaultImage:(UIImage*)defaultImage
-                    contentMode:(UIViewContentMode)contentMode size:(CGSize)size next:(TTStyle*)next {
++ (TTImageStyle*)styleWithImage:(UIImage*)image
+                   defaultImage:(UIImage*)defaultImage
+                    contentMode:(UIViewContentMode)contentMode
+                           size:(CGSize)size
+                           next:(TTStyle*)next {
   TTImageStyle* style = [[[self alloc] initWithNext:next] autorelease];
   style.image = image;
   style.defaultImage = defaultImage;
@@ -173,6 +180,7 @@
   if (_size.width || _size.height) {
     size.width += _size.width;
     size.height += _size.height;
+
   } else if (_contentMode != UIViewContentModeScaleToFill
              && _contentMode != UIViewContentModeScaleAspectFill
              && _contentMode != UIViewContentModeScaleAspectFit) {

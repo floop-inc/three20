@@ -31,7 +31,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNextSibling:(TTStyledNode*)nextSibling {
-  if (self = [super init]) {
+	self = [super init];
+  if (self) {
     self.nextSibling = nextSibling;
   }
 
@@ -41,7 +42,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init {
-  if (self = [self initWithNextSibling:nil]) {
+	self = [self initWithNextSibling:nil];
+  if (self) {
   }
 
   return self;
@@ -82,6 +84,7 @@
 - (NSString*)outerHTML {
   if (_nextSibling) {
     return _nextSibling.outerHTML;
+
   } else {
     return @"";
   }
@@ -92,6 +95,7 @@
 - (id)ancestorOrSelfWithClass:(Class)cls {
   if ([self isKindOfClass:cls]) {
     return self;
+
   } else {
     return [_parentNode ancestorOrSelfWithClass:cls];
   }
