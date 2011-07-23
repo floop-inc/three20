@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -508,9 +508,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0410;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Three20UINavigator" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -696,7 +697,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Internal;
@@ -711,7 +711,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				PREBINDING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
@@ -723,13 +723,12 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				PREBINDING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -743,7 +742,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Adhoc;
@@ -754,22 +752,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PREBINDING = NO;
-				SDKROOT = iphoneos;
-				ZERO_LINK = NO;
-			};
-			name = Adhoc;
-		};
-		9CD28DC5137CD4B10067A855 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PREBINDING = NO;
-				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)-Xcode3.2.5";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
@@ -781,27 +764,10 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../common/Xcode324iOS41Fix.pch";
-				PREBINDING = NO;
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
-			};
-			name = Adhoc;
-		};
-		9CD28DC7137CD4B10067A855 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				PREBINDING = NO;
-				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)-Xcode3.2.5";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
@@ -816,7 +782,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				PREBINDING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -827,8 +793,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PREBINDING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
@@ -842,7 +807,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -855,7 +819,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -866,12 +829,11 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				PREBINDING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -883,10 +845,9 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				PREBINDING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
